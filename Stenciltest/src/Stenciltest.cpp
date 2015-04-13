@@ -2,7 +2,9 @@
 //
 
 #include <stdlib.h>
+extern "C"{
 #include "../GLloadgen/gl_core_3_3.h"
+}
 #include "GL/freeglut_std.h"
 #include "GL/freeglut_ext.h"
 
@@ -24,7 +26,7 @@ unsigned char testtex[500 * 500 * 4] {};
 
 
 extern "C"{
-	void DebugCallbackARB(GLenum source, GLenum type, GLuint id, GLenum severity,
+	void CALLBACK SimpleDebugCallbackARB(GLenum source, GLenum type, GLuint id, GLenum severity,
 		GLsizei length, const GLchar *message, const void *userParam) {
 
 		char debSource[16], debType[20], debSev[7];
@@ -75,7 +77,7 @@ extern "C"{
 void init()
 {
 	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
-	glDebugMessageCallbackARB(DebugCallbackARB,NULL);
+	glDebugMessageCallbackARB(SimpleDebugCallbackARB, NULL);
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glGenTextures(2, textures);
 	
