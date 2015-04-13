@@ -164,7 +164,7 @@ int main(int argc, char* argv[])
 	}
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
-	int windowID = glutCreateWindow("Name");
+	int windowID = glutCreateWindow("Stenciltest");
 	if (ogl_LoadFunctions() == ogl_LOAD_FAILED)
 	{
 		glutDestroyWindow(windowID);
