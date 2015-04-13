@@ -23,7 +23,9 @@ GLuint fbo;
 GLuint textures[2];
 unsigned char testtex[500 * 500 * 4] {};
 
-
+#ifndef CALLBACK
+#define CALLBACK
+#endif
 
 extern "C"{
 	void CALLBACK SimpleDebugCallbackARB(GLenum source, GLenum type, GLuint id, GLenum severity,
